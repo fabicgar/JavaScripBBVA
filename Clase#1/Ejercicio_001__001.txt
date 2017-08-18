@@ -1,0 +1,47 @@
+Ejercicio 001__001
+
+En España el documento nacional de identidad se conoce como DNI.
+Cada DNI tiene un número de identificación único.
+
+Este número está compuesto por un número de 8 cifras, acompañado de una letra de seguridad.
+La letra asegura la integridad del DNI, ya que se calcula en base a los números.
+
+Ejemplos de DNI:
+12312312K
+78163312C
+12345678Z
+34667892S
+92234488A
+
+El cálculo de la letra se realiza de la siguiente forma:
+Se toma el número y se divide entre 23.
+Según el resto de la división entre 23 miramos la letra correspondiente en la siguiente tabla:
+
+_____________________________________________________________ 
+| 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 |
+| T R W A G M Y F P D X  B  N  J  Z  S  Q   V H   L  C K  E  |
+____________________________________________________________|
+
+Ejercicio:
+
+Realiza una función que reciba el número de un DNI y devuelva la letra correspondiente.
+Puedes realizar pruebas con los números de DNI de los ejemplos anteriores.
+
+
+--------------------------------------------------
+
+function letraDNIMejorada(dni){
+	var letras = ["T","R","W","A","G","M","Y","F","P","D","X","B","N","J","Z","S","Q","V","H","L","C","K","E"];
+	var residuo = null;
+	residuo = dni % 23;
+	//for (var indice=0; indice<letras.length; indice++)
+	for (var indice=0; indice<residuo; indice++)
+	{
+		var letra = letras[residuo];
+
+	}
+	console.log("Su Letra es: " + letra);
+	document.write("Su DNI es:" +dni+letra );
+	return letra;
+}
+letraDNIMejorada(12312312);

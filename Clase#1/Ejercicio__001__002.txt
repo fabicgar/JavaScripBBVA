@@ -1,0 +1,17 @@
+Ejercicio: 001__002
+
+La función desarrollada en el ejercicio anterior cumple con su cometido. Pero solo funciona correctamente en los casos óptimos.
+
+¿Qué pasaría si le indicamos un número de 3 letras?
+¿Qué pasaría si en vez de un número le enviamos un string?
+
+Ejercicio:
+
+Reutiliza la función del ejercicio anterior e introduce las siguientes mejoras:
+
+1) Si introducimos un valor no numérico deberá mostrar el mensaje: "Debes introducir un valor numérico."
+2) Si introducimos un valor numérico que no tenga 8 cifras deberá mostrar: "Debes introducir un número de 8 cifras."
+3) Si introducimos un valor numérico negativo deberá mostrar: "Debes introducir un valor positivo."
+
+BONUS:
+Si el número del DNI tiene menos de 8 dígitos, debemos añadirle ceros por la izquierda hasta completarlo. La función devolverá el DNI resultante
