@@ -1,4 +1,3 @@
-
 // Clase Global Ultilidades
 class Utilidades {
     static generarNumeroAleatorioEntre(minimo, maximo) {
@@ -33,7 +32,7 @@ class Biblioteca {
         this.generarSecciones();
         this.añadeSociosAleatoriamente(100);
         this.añadeLibrosAleatoriamente(1000);
-        
+
     }
     // Cambio de setInterval a =>
     inciarCiclo() {
@@ -109,14 +108,11 @@ class Biblioteca {
     }
 
     devolverLibro(libro) {
-        let secciones = this._secciones;
-        for (let i = 0; i < secciones.length; i++) {
-            let seccion = secciones[i];
-            if (seccion._nombre == libro._tematica) {
-                seccion._libros.push(libro);
-            }
-        }
+        let seccion = this.buscarSeccion(libro._tematica);
+        seccion._libros.push(libro);
     }
+
+
     // ejecutar el ciclo de todos los socios
     ejecutarCiclo() {
         for (let i = 0; i < this._socios.length; i++) {
