@@ -1,0 +1,24 @@
+{
+  "name": "prueba",
+  "version": "1.0.0",
+  "description": "prueba para ensenar NPM",
+  "main": "index.js",
+  "config":{
+    "port": "8080"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node serve.js"
+  },
+  "keywords": [
+    "prueba",
+    "npm"
+  ],
+  "author": "Fabian",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "express": "^4.15.4"
+  },
+  "devDependencies": {}
+}
