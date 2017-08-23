@@ -1,0 +1,22 @@
+{
+  "name": "proyectfinal",
+  "version": "1.0.0",
+  "description": "jsfina",
+  "main": "index.js",
+  "config":{
+    "port": "8281"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+	"start": "node serve.js"
+  },
+  "keywords": [
+    "jsmex"
+  ],
+  "author": "fabicgar",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "express": "^4.15.4"
+  }
+}

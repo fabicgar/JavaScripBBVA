@@ -1,107 +1,80 @@
 class Page {
-    constructor(titulo, url, autenticadoDeUser) {
+    constructor(titulo, url, autenticadoDeUser, navigatorController) {
         this._titulo = titulo;
         this._url = url;
         this._autenticadoDeUser = autenticadoDeUser;
-        
-
-    }
-
-    init() {
-
-       
-    }
-}
-
-class PageLogin extends Page {
-    constructor(titulo, url, autenticadoDeUser, navigatorController) {
-        super(titulo, url, autenticadoDeUser);
         this._navigatorController = navigatorController;
-    }
-
-    pintar() {
-        this._container = document.createElement("div");
-        this._container.className = "container";
-
-        let login = `<div class="card card-container">
-            <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
-            <img id="profile-img" class="profile-img-card" src="http://2.bp.blogspot.com/-V6MFIxdYuKs/Vapn4t3jICI/AAAAAAABFxA/kFCpd-F_Bec/s400/facebook_middle_finger.jpg" />
-            <p id="profile-name" class="profile-name-card"></p>
-            <form class="form-signin">
-                <span id="reauth-User" class="reauth-User"></span>
-                <input type="User" id="inputUser" class="form-control" placeholder="User" required autofocus>
-                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-                <div id="remember" class="checkbox">
-                    <label> 
-                        <input type="checkbox" value="remember-me"> Remember me
-                    </label>
-                </div>
-                <button class="btn btn-lg btn-primary btn-block btn-signin" id ="Entrar" type="button">Sign in</button>
-            </form><!-- /form -->
-            <a href="#" class="CrearCuenta">
-                Crear Cuenta
-            </a>
-        </div><!-- /card-container -->`;
-        this._container.innerHTML = login;
-        this._divPage = document.createElement("div");
-        this._divPage.className = "page-login";
-
-        this._container.appendChild(this._divPage);
-        document.body.appendChild(this._container);
-
-        let botonEntrar = document.querySelector("#Entrar");
-        botonEntrar.addEventListener("click", () => this.access()); 
-
-
-
-    }
-
-    access (){
-        this._navigatorController.navigateToUrl("#home");
-    }
-}
-
-class PageCrearCuenta extends Page {
-    constructor(titulo, url, autenticadoDeUser) {
-        super(titulo, url, autenticadoDeUser);
+        this._apiClient = new ApiClient();
+        this._userApiClient = new UserAPIClient(this._apiClient);
     }
 }
 
 class PageInnerPage extends Page {
-    constructor(titulo, url, autenticadoDeUser) {
-        super(titulo, url, autenticadoDeUser);
+    constructor(titulo, url, autenticadoDeUser, navigatorController) {
+        super(titulo, url, autenticadoDeUser, navigatorController);
+    }
+
+    pintarCabecera() {
+
+        let header = `<div class="navbar-wrapper">
+    <div class="container-fluid">
+        <nav class="navbar navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Restaurant</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#" class="">Home</a></li>
+                            <li class=""><a href="#">Gestión de Comidas</a></li>
+                        </li>
+                        <li class=""><a href="#">Gestión de Bebidas</a></li>
+                        
+                        <li class=""><a href="#">Perfil de usuario</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav pull-right">
+                       <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Staff <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">View Staff</a></li>
+                                <li><a href="#">Add New</a></li>
+                                <li><a href="#">Bulk Upload</a></li>
+                            </ul>
+                        </li>
+                        <li class=""><a href="#">Logout</a></li>
+                    </ul>
+                </div>
+            </div>`;
+        document.body.innerHTML = header;
+        let enlacesHTML = "";
+    }
+    pintarFooter() {
+
     }
 }
-
-
-
-class Home extends PageInnerPage {
-    constructor(titulo, url, autenticadoDeUser) {
-        super(titulo, url, autenticadoDeUser);    
-    }
-
-    pintraContenido(){
-
-    }
-}
-
 
 class Page1 extends PageInnerPage {
-    constructor(titulo, url, autenticadoDeUser) {
-        super(titulo, url, autenticadoDeUser);
+    constructor(titulo, url, autenticadoDeUser, navigatorController) {
+        super(titulo, url, autenticadoDeUser, navigatorController);
     }
+    
 }
 
 
 class Page2 extends PageInnerPage {
-    constructor(titulo, url, autenticadoDeUser) {
-        super(titulo, url, autenticadoDeUser);
+    constructor(titulo, url, autenticadoDeUser, navigatorController) {
+        super(titulo, url, autenticadoDeUser, navigatorController);
     }
 }
 
 
 class Page3 extends PageInnerPage {
-    constructor(titulo, url, autenticadoDeUser) {
-        super(titulo, url, autenticadoDeUser);
+    constructor(titulo, url, autenticadoDeUser, navigatorController) {
+        super(titulo, url, autenticadoDeUser, navigatorController);
     }
 }

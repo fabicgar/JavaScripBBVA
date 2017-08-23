@@ -1,13 +1,3 @@
-class Utilidades {
-    constructor() {}
-
-    static removeAllEventListenersToElement(element) {
-        var newElement = element.cloneNode(true);
-        element.parentNode.replaceChild(newElement, element);
-        return newElement;
-    }
-}
-
 class MainController {
     constructor() {
         this._container = null;
@@ -16,13 +6,16 @@ class MainController {
         this._pokemonApi = new PokemonApi(this._apiClient);
         this._pokedex = new Pokedex(this);
 
-        this._paginaActual = 0;
+        this._paginaActual = 1;
     }
 
     paginaSiguiente() {
+        debugger;
         this._paginaActual = this._paginaActual + 1;
         this.motrardetallePokemons();
+        this._paginaActual.innerHTML = "Página Actual:" + pagina;
     }
+
     paginaAnterior() {
 
         this._paginaActual = this._paginaActual - 1;
@@ -35,52 +28,39 @@ class MainController {
     }
 
 
-
-    motrardetallePokemons() {
-        this._pokedex.init(this._divAlmacen, this._pokemonApi, this._paginaActual);
-    }
-
-
     init() {
         this.pintarEstructura();
-        //this._pokedex.init(this._divAlmacen, this._pokemonApi);
-        this.motrardetallePokemons();
+        this.verDetallePokemon();
     }
 
     pintarEstructura() {
         this._container = document.createElement("div");
         this._container.className = "container";
-
         this._divAlmacen = document.createElement("div");
-        this._divAlmacen.className = "almacen-pokemones";
-
+        this._divAlmacen.className = "almacen-pokemons";
         this._container.appendChild(this._divAlmacen);
         document.body.appendChild(this._container);
+    }
+
+    verDetallePokemon() {
+        this._pokedex.init(this._divAlmacen, this._pokemonApiClient, this._paginaActual);
     }
 }
 
 class Pokemon {
-    constructor(name, url) {
+    constructor(name, url, peso, altura, urlImagen) {
         this._name = name;
         this._url = url;
+        this._peso = peso;
+        this._altura = altura;
+        this._urlImagen = urlImagen;
     }
 }
-
-
-class PokemonDetalle {
-    constructor(name, image, weight, height) {
-        this._name = name;
-        this._image = image;
-        this._weight = weight;
-        this._height = height;
-    }
-}
-
 
 class Pokedex {
     constructor(mainController) {
         this._contenedorHtml = null;
-        this._pokemones = [];
+        this._pokemons = [];
         this._pokemonApi = null;
         this._mainController = mainController;
     }
@@ -115,20 +95,16 @@ class Pokedex {
 
     getRowForPokemon(pokemon) {
         let tr = document.createElement("tr");
-
         let td2 = document.createElement("td");
         td2.innerHTML = pokemon._name;
         tr.appendChild(td2);
-
         let td5 = document.createElement("td");
-
-
         let buttonDetalles = document.createElement("button");
         buttonDetalles.innerHTML = "Detalles";
-        buttonDetalles.className = "btn btn-info";
-        td5.appendChild(buttonDetalles);
-        tr.appendChild(td5);
-        buttonDetalles.addEventListener("click", () => Modal.openModal("Detalle", this.openModal));
+        buttonDetalles.className = "btn btn-success";
+        buttonDetalles.addEventListener("click", () => this.getDetallePokemonAndPaint(pokemon._url));
+        td2.appendChild(buttonDetalles);
+        tr.appendChild(td2);
 
 
         return tr;
@@ -136,6 +112,8 @@ class Pokedex {
 
 
     pintarEstructura() {
+        this._contenedorHtml.className = "container";
+
         let estructura = `
             <h1 class="main-title"> La Pokedex XANXA! </h1>
             
@@ -160,14 +138,36 @@ class Pokedex {
 
 
         this._contenedorHtml.innerHTML = estructura;
+        //this._paginaActual = this._contenedorHtml.querySelector("#pagina");
         let botonSiguiente = this._contenedorHtml.querySelector("#siguiente");
         botonSiguiente.addEventListener("click", () => this._mainController.paginaSiguiente());
 
-        // this._contenedorHtml.innerHTML  = estructura;
-        // let botonAnterior = this._contenedorHtml.querySelector("#anterior");
-        // botonAnterior.addEventListener("click", () => this._mainController.paginaAnterior());
+
+        let botonAnterior = this._contenedorHtml.querySelector("#anterior");
+        botonAnterior.addEventListener("click", () => this._mainController.paginaAnterior());
     }
 
+    getDetalleDePokemon(urlDetalle) {
+        this._pokemonApiClient.getPokemonByUrl(urlDetalle).then((data) => {
+            this.pintarDetalle(data);
+        });
+    }
+
+    pintarDetalle(pokemon) {
+        let imagen = pokemon._urlImagen;
+        let nombre = pokemon._name;
+        let peso = pokemon._peso;
+        let altura = pokemon._altura;
+        let html = `<p><img src="${imagen}"></p>
+                    <p><strong>Nombre:</strong> ${nombre} </p>
+                    <p><strong>Peso:</strong> ${peso}</p>
+                    <p><strong>Altura:</strong> ${altura}</p>
+                    `;
+
+        console.log(html);
+        Modal.openModal(pokemon._name, html);
+        return html;
+    }
 }
 
 class Modal {

@@ -1,36 +1,49 @@
 class UserAPIClient {
     constructor(apiClient) {
-        this._baseUrl = "";
+        this._baseUrl = "http://formacion-indra-franlindebl.com/api/users";
         this._apiClient = apiClient;
     }
 
-    //     getUserAtPage(pagina){  
+    createUser(user) {
+        let completeUrl = this._baseUrl;
 
-    //         let completeUrl = this._baseUrl + pagina;
-    //         let promise = this._apiClient.get(completeUrl, null);
+        let userObject = {
+            //_id: user._id,
+            email: user._email,
+            apellidos: user._apellidos,
+            nombre: user._nombre,
+            username: user._username,
+            password: user._password
+        };
 
-    //         let anotherPromise = promise.then((data) =>{
+        let promise = this._apiClient.post(completeUrl, userObject);
 
-    //             let datos = data.results;
-    //             let users = [];
-    //             for (let i=0; i<datos.length; i++){
+        let anotherPromise = promise.then((data) => {
+            console.log("data");
+            console.log(data);
 
-    //                 let elemento = datos[i];
-    //                     let name = elemento.name;   
-    //                     let url = elemento.url;
+            return true;
+        });
 
-    //                 let user = new user(name,url);            
+        return anotherPromise;
+    }
 
-    //                 users.push(pokemon);
-    //              }
-    //             return users;
-    //         });
-    //         return anotherPromise;
-    //     }
+    loginUser(user) {
+        let completeUrl = this._baseUrl + "/login";
 
+        let userObj = {
+            username: user._username,
+            password: user._password
+        };
 
+        let promise = this._apiClient.post(completeUrl, userObj);
 
-    //     getUserByUrl(url){
+        let anotherPromise = promise.then((data) => {
+            // id, email, apellidos, nombre, username
+            let user = new User(data._id, data._email, data._apellidos, data._nombre, data._username, data._password);
+            return user;
+        });
 
-    //     }
+        return anotherPromise;
+    }
 }

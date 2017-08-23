@@ -10,3 +10,163 @@
 .button.container{
 	
 }
+
+
+}
+buttons.less:7
+.btn-success {
+    color: #fff;
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+}
+buttons.less:10
+.btn {
+    display: inline-block;
+    padding: 11px 22px;
+    margin-bottom: -2px;
+    font-size: 15px;
+    font-weight: normal;
+    line-height: 1.428571;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: text-bottom;
+    -ms-touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 4px solid transparent;
+    border-radius: 26px;
+    box-shadow: 0 0 black;
+}
+scaffolding.less:40
+input, button, select, textarea {
+    font-family: cursive;
+    font-size: inherit;
+    line-height: inherit;
+}
+normalize.less:290
+button, html input[type="button"], input[type="reset"], input[type="submit"] {
+    -webkit-appearance: button;
+    cursor: pointer;
+}
+normalize.less:277
+button, select {
+    text-transform: none;
+}
+normalize.less:266
+button {
+}
+normalize.less:252
+button, input, optgroup, select, textarea {
+    margin: -4px;
+    font: inherit;
+    color: inherit;
+}
+vendor-prefixes.less:76
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+user agent stylesheet
+input[type="button" i], input[type="submit" i], input[type="reset" i], input[type="file" i]::-webkit-file-upload-button, button {
+    padding: 1px 6px;
+}
+user agent stylesheet
+input[type="button" i], input[type="submit" i], input[type="reset" i], input[type="file" i]::-webkit-file-upload-button, button {
+    align-items: flex-start;
+    text-align: center;
+    cursor: default;
+    color: buttontext;
+    background-color: buttonface;
+    box-sizing: border-box;
+    padding: 2px 6px 3px;
+    border-width: 2px;
+    border-style: outset;
+    border-color: buttonface;
+    border-image: initial;
+}
+user agent stylesheet
+input, textarea, select, button {
+    text-rendering: auto;
+    color: initial;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    margin: 0em;
+    font: 13.3333px Arial;
+}
+user agent stylesheet
+input, textarea, select, button, meter, progress {
+    -webkit-writing-mode: horizontal-tb;
+}
+user agent stylesheet
+button {
+    -webkit-appearance: button;
+}
+Inherited from td
+tables.less:33
+.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+    padding: 8px;
+    line-height: 3.428571;
+    vertical-align: top;
+    border-top: 1px solid #ddd;
+}
+Inherited from table.table.table-striped.table-bordered
+bootstrap.css? [sm]:175
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+user agent stylesheet
+table {
+    display: table;
+    border-collapse: separate;
+    border-spacing: 2px;
+    border-color: grey;
+}
+Inherited from body
+scaffolding.less:28
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.428571;
+    color: #333;
+    background-color: #fff;
+}
+Inherited from html
+scaffolding.less:23
+html {
+    font-size: 10px;
+    -webkit-tap-highlight-color: rgba(25, 0, 0, 0);
+}
+normalize.less:9
+html {
+    font-family: sans-serif;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+Pseudo ::before element
+vendor-prefixes.less:76
+*:before, *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+Pseudo ::after element
+vendor-prefixes.less:76
+*:before, *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+margin-4
+8border4
+6padding11
+2257.531 × 2122
+}

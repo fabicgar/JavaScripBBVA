@@ -13,7 +13,11 @@ class ApiClient {
         };
 
         let promise = fetch(url, config).then((response) => {
-            return response.json();
+            if (response.status >= 200 && response.status < 300) {
+                return response.json();
+            } else {
+                return Promise.reject("Error: " + response.json());
+            }
         });
 
         return promise;
@@ -37,9 +41,8 @@ class ApiClient {
             if (response.status >= 200 && response.status < 300) {
                 return response.json();
             } else {
-                return Promise.reject("Error: " + response.status);
+                return Promise.reject("Error: " + response.json());
             }
-
         });
 
         return promise;
@@ -65,9 +68,8 @@ class ApiClient {
             if (response.status >= 200 && response.status < 300) {
                 return response.json();
             } else {
-                return Promise.reject("Error: " + response.status);
+                return Promise.reject("Error: " + response.json());
             }
-
         });
 
         return promise;
@@ -92,9 +94,8 @@ class ApiClient {
             if (response.status >= 200 && response.status < 300) {
                 return response.text();
             } else {
-                return Promise.reject("Error: " + response.text());
+                return Promise.reject("Error: " + response.json());
             }
-
         });
 
         return promise;

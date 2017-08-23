@@ -42,10 +42,10 @@ class MainController {
     init() {
         this._pageLogin = new PageLogin("Iniciar sesión", "#login", false, this._navigatorController);
         this._pageCrearCuenta = new PageCrearCuenta("Crear Cuenta", "#crear-cuenta", false, this._navigatorController);
-        this._home = new Home("Home", "#home", true, this._navigatorController);
-        this._page1 = new Page1("Page1", "#page1", true, this._navigatorController);
-        this._page2 = new Page2("Page2", "#page2", true, this._navigatorController);
-        this._page3 = new Page3("Page3", "#page3", true, this._navigatorController);
+        this._home = new PageHome("PageHome", "#pagehome", true, this._navigatorController);
+        this._page1 = new Page1("Page 1", "#page1", true, this._navigatorController);
+        this._page2 = new Page2("Page 2", "#page2", true, this._navigatorController);
+        this._page3 = new Page3("Page 3", "#page3", true, this._navigatorController);
         this._navigatorController.addPagina(this._pageLogin);
         this._navigatorController.addPagina(this._pageCrearCuenta);
         this._navigatorController.addPagina(this._home);
