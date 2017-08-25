@@ -1,4 +1,4 @@
-class NavigatorController {
+    class NavigatorController {
     constructor(userController) {
         this.divPage = null;
         this._userController = userController;
@@ -6,12 +6,10 @@ class NavigatorController {
     }
 
     init() {
-
     }
 
     addPagina(page) {
         this._pages.push(page);
-
     }
 
     navigateToUrl(url) {
@@ -41,37 +39,5 @@ class NavigatorController {
                 }
             }
         }
-    }
-}
-
-class UserController {
-    constructor() {
-        this._apiClient = new ApiClient();
-        this._userAPIClient = new UserAPIClient();
-    }
-
-    usuarioEstaLogado() {
-        return true;
-    }
-
-    getGuardarUser(data) {
-        for (let i = 0; i < data.length; i++) {
-            let user = data[i];
-        }
-    }
-
-    validarDatosUser(username, password) {
-
-    }
-}
-
-class User {
-    constructor(id, email, apellidos, nombre, username, password) {
-        this._id = id;
-        this._email = email;
-        this._apellidos = apellidos;
-        this._nombre = nombre;
-        this._username = username;
-        this._password = password;
     }
 }

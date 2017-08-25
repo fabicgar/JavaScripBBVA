@@ -1,6 +1,8 @@
 class PageLogin extends Page {
-    constructor(titulo, url, autenticadoDeUser, navigatorController) {
+    constructor(titulo, url, autenticadoDeUser, navigatorController, userController, userApiClient) {
         super(titulo, url, autenticadoDeUser, navigatorController);
+        this._userController = userController;
+        this._userApiClient = userApiClient;
     }
 
     pintar() {
@@ -13,8 +15,8 @@ class PageLogin extends Page {
             <p id="profile-name" class="profile-name-card"></p>
             <form class="form-signin">
                 <span id="reauth-User" class="reauth-User"></span>
-                <input type="User" id="inputUser" class="form-control" placeholder="User" required autofocus>
-                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                <input type="User" id="username" class="form-control" placeholder="User" required autofocus>
+                <input type="password" id="password" class="form-control" placeholder="Password" required>
                 <div id="remember" class="checkbox">
                     <label> 
                         <input type="checkbox" value="remember-me"> Remember me
@@ -44,10 +46,27 @@ class PageLogin extends Page {
     }
 
     access() {
+        let username = this._container.querySelector("#username").value;
+        let password = this._container.querySelector("#password").value;
+
+        //let user = new User(null, username, password);
+        this._userController._user._username = username;
+        this._userController._user._password = password;
+
+
+        let userTemp = new User(null, null, null, null, username, password);
+        //nombre, apellidos, email, username, password
+
+        this._userController.login(userTemp);
         this._navigatorController.navigateToUrl("#pagehome");
+
     }
 
     irCrearCuenta() {
         this._navigatorController.navigateToUrl("#crear-cuenta");
+    }
+
+    validarDatosDeLogin() {
+
     }
 }

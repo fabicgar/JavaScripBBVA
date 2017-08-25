@@ -1,6 +1,7 @@
 class PageCrearCuenta extends Page {
-    constructor(titulo, url, autenticadoDeUser, navigatorController) {
+    constructor(titulo, url, autenticadoDeUser, navigatorController, userController) {
         super(titulo, url, autenticadoDeUser, navigatorController);
+        this._userController = userController;
     }
 
     pintar() {
@@ -95,14 +96,8 @@ class PageCrearCuenta extends Page {
         let password = this._container.querySelector("#password").value;
 
         let user = new User(null, email, apellidos, nombre, username, password);
-
-        this._userApiClient.createUser(user).then((data) => {
-            console.log("Realizamos registro de usuario");
-            console.log(data);
-
-            this._navigatorController.navigateToUrl("#login");
-
-        });
+        this._userController.createUserNew(user);
+        this._navigatorController.navigateToUrl("#login");
     }
 
     volverLogin() {

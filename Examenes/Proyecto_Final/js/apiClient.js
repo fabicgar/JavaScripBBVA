@@ -24,7 +24,7 @@ class ApiClient {
     }
 
     post(url, data) {
-        var headers = new Headers();
+        let headers = new Headers();
         headers.append("Content-Type", "application/json");
 
         let config = {
@@ -50,7 +50,7 @@ class ApiClient {
 
     put(url, data) {
 
-        var headers = new Headers();
+        let headers = new Headers();
         headers.append("Content-Type", "application/json");
 
         let config = {
@@ -76,7 +76,7 @@ class ApiClient {
     }
 
     delete(url, data) {
-        var headers = new Headers();
+        let headers = new Headers();
         headers.append("Content-Type", "application/json");
 
         let config = {

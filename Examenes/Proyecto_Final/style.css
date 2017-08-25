@@ -195,3 +195,21 @@ border: none;
     color: #fff;
     background: #fff;
 }
+
+.mitabla { font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif; font-size: 12px; margin: 45px; width: 550px;
+    text-align: center; border-collapse: collapse; }
+ 
+     th { font-size: 13px; font-weight: normal; padding: 8px; background: #b9c9fe; border-top: 4px solid #aabcfe;
+    border-bottom: 1px solid #fff; color: #039; }
+ 
+.mitabla td { padding: 8px; background: #e8edff; border-bottom: 1px solid #fff; color: #669; border-top: 1px solid transparent; }
+ 
+.mitabla tr:hover td { background: #d0dafd; color: #339; }
+ 
+.mitabla .editar {color: blue; cursor:pointer;}
+ 
+.mitabla #contenedorForm {margin-left: 45px; font-size:12px;}
+ 
+.mitabla .boton {   color: black; padding: 5px; margin: 10px;
+  background-color: #b9c9fe;
+  font-weight: bold; }

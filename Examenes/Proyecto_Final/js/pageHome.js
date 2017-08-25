@@ -18,28 +18,22 @@ class PageHome extends PageInnerPage {
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Restaurant</a>
+                    <a class="navbar-brand" href="#">De domo Azrael</a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li class="active">
                             <a id="page-home" href="#" class="">Home</a></li>
                         <li class="">
-                            <a id="page1" href="#">Gestión de Comidas</a></li>
+                            <a id="pageGestionBebida" href="#">Gestión de Bebidas</a></li>
                         </li>
                         <li class="">
-                            <a id="page2" href="#">Gestión de Bebidas</a></li>
+                            <a id="pageGestionComida" href="#">Gestión de Comidas</a></li>
                         <li class="">
-                            <a id="page3" href="#">Perfil de usuario</a></li>
+                            <a id="perfilUser" href="#">Perfil de usuario</a></li>
                     </ul>
                     <ul class="nav navbar-nav pull-right">
-                        <li class=" dropdown">
-                            <a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Signed in as  <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">My Profile</a></li>
-                            </ul>
-                        </li>
-                        <li class=""><a href="#">Logout</a></li>
+                        <li class=""><a id="salir" href="#">Salir</a></li>
                     </ul>
                 </div>
             </div>`;
@@ -55,25 +49,32 @@ class PageHome extends PageInnerPage {
         document.body.appendChild(this._divPage);
 
         let botonHome = this._container.querySelector("#page-home");
-        botonHome.addEventListener("click", () => { this._navigatorController.navigateToUrl("#page-home");
+        botonHome.addEventListener("click", () => {
+            this._navigatorController.navigateToUrl("#page-home");
         });
 
-        let botonGestionComidas = this._container.querySelector("#page1");
-        botonGestionComidas.addEventListener("click", (e) => {
-            e.preventDefault();
-            this._navigatorController.navigateToUrl("#page1");
-        });
-
-        let botonGestionBebidas = this._container.querySelector("#page2");
+        let botonGestionBebidas = this._container.querySelector("#pageGestionBebida");
         botonGestionBebidas.addEventListener("click", (e) => {
             e.preventDefault();
-            this._navigatorController.navigateToUrl("#page2");
+            this._navigatorController.navigateToUrl("#pageGestionBebida");
         });
 
-        let botonPerfil = this._container.querySelector("#page3");
+        let botonGestionComidas = this._container.querySelector("#pageGestionComida");
+        botonGestionComidas.addEventListener("click", (e) => {
+            e.preventDefault();
+            this._navigatorController.navigateToUrl("#pageGestionComida");
+        });
+
+        let botonPerfil = this._container.querySelector("#perfilUser");
         botonPerfil.addEventListener("click", (e) => {
             e.preventDefault();
-            this._navigatorController.navigateToUrl("#page3");
+            this._navigatorController.navigateToUrl("#perfilUser");
+        });
+
+        let botonSalir = this._container.querySelector("#salir");
+        botonSalir.addEventListener("click", (e) => {
+            e.preventDefault();
+            this._navigatorController.navigateToUrl("#login");
         });
     }
 }
